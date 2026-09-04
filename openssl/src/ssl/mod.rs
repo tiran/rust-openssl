@@ -623,13 +623,8 @@ impl SniError {
 
 /// An SSL/TLS alert.
 ///
-/// These correspond to the alert descriptions from the IANA TLS Alert registry.
 /// The same values are used both to signal an alert from a callback and to
 /// identify an alert received from the peer via [`SslAlert::from_reason_code`].
-///
-/// See the [IANA TLS Alert registry] for the full list of alert descriptions.
-///
-/// [IANA TLS Alert registry]: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-6
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct SslAlert(c_int);
 
@@ -675,8 +670,6 @@ impl SslAlert {
 
     /// Returns the error reason code reported by [`Error::reason_code`] when
     /// this alert is received from the peer.
-    ///
-    /// This is the alert description plus `SSL_AD_REASON_OFFSET` (1000).
     ///
     /// [`Error::reason_code`]: crate::error::Error::reason_code
     pub fn reason_code(&self) -> c_int {

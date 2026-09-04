@@ -278,9 +278,7 @@ pub const OPENSSL_NPN_UNSUPPORTED: c_int = 0;
 pub const OPENSSL_NPN_NEGOTIATED: c_int = 1;
 pub const OPENSSL_NPN_NO_OVERLAP: c_int = 2;
 
-// TLS alert descriptions, as registered in the IANA TLS Alert registry. The
-// error reason code reported for a received alert is the description plus
-// `SSL_AD_REASON_OFFSET`.
+pub const SSL_AD_REASON_OFFSET: c_int = 1000;
 pub const SSL_AD_CLOSE_NOTIFY: c_int = 0;
 pub const SSL_AD_UNEXPECTED_MESSAGE: c_int = 10;
 pub const SSL_AD_BAD_RECORD_MAC: c_int = 20;
@@ -318,9 +316,6 @@ pub const SSL_AD_UNKNOWN_PSK_IDENTITY: c_int = 115;
 pub const SSL_AD_CERTIFICATE_REQUIRED: c_int = 116;
 pub const SSL_AD_NO_APPLICATION_PROTOCOL: c_int = 120;
 
-/// Offset added to an alert description to obtain the corresponding error
-/// reason code (`SSL_R_*_ALERT_*`).
-pub const SSL_AD_REASON_OFFSET: c_int = 1000;
 pub const SSL_ERROR_NONE: c_int = 0;
 pub const SSL_ERROR_SSL: c_int = 1;
 pub const SSL_ERROR_SYSCALL: c_int = 5;
